@@ -20,6 +20,8 @@ class IndexController extends ControllerBase
             $update->email = $this->request->getPost("email");
             $update->save();
         }
+
+        return $this->to('index/list');
     }
 
     public function deleteAction($id) {
@@ -27,6 +29,7 @@ class IndexController extends ControllerBase
         if ( $delete != false ) {
             $delete->delete();
         }
+        $this->to('index/list');
     }
 
     public function listAction() {
